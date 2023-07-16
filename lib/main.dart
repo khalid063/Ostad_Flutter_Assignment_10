@@ -72,7 +72,7 @@ class HomeScreenUI extends State<HomeScreen>{
               height: 300,
               child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
+                    crossAxisCount: 3,
                     crossAxisSpacing: 0,
                     childAspectRatio: 1.2,
                   ),
