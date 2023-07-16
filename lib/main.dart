@@ -163,7 +163,7 @@ class HomeScreenUI extends State<HomeScreen>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ostad Flutter Assignment 10'),
+        title: Text('Profile'),
       ),
       body: OrientationBuilder(
         builder: (context, orientation){
