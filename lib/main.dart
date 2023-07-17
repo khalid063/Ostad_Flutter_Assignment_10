@@ -47,11 +47,12 @@ class HomeScreenUI extends State<HomeScreen>{
   Widget potrait(){
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
+        padding: EdgeInsets.fromLTRB(10, 10, 5, 0),
         child: Column(
           children: [
             Container(
-              height: 300,
+              //height: 300,
+              height: MediaQuery.of(context).size.height * 0.4,
               width: double.infinity,
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/images/profile_img.png'),
@@ -67,6 +68,7 @@ class HomeScreenUI extends State<HomeScreen>{
               'I am Android App developer. Always I try to keep my code clean. I am Android App developer. Always I try to keep my code clean.',
               style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),
             ),
+            SizedBox(height: 5,),
             Container(
               width: double.infinity,
               height: 300,
@@ -80,7 +82,7 @@ class HomeScreenUI extends State<HomeScreen>{
                   itemBuilder: (context, index){
                     return GestureDetector(
                       child: Container(
-                        margin: EdgeInsets.all(5),
+                        margin: EdgeInsets.fromLTRB(0, 5, 5, 0),
                         width: double.infinity,
                         height: 200,
                         child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),
@@ -98,13 +100,14 @@ class HomeScreenUI extends State<HomeScreen>{
   /// LandScape Mood Design
   Widget landScape(){
     return Padding(
-        padding: EdgeInsets.fromLTRB(5 , 5, 5, 0),
+        padding: EdgeInsets.fromLTRB(0 , 0, 0, 0),
       child: Container(
         child: Row(
           children: [
             Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
-              width: 300,
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              width: MediaQuery.of(context).size.width * 0.4,
               height: double.infinity,
               color: Colors.white,
               child: CircleAvatar(
@@ -112,45 +115,49 @@ class HomeScreenUI extends State<HomeScreen>{
               ),
             ),
             SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Khalid Ahmad',
-                    style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(height: 10,),
-                  Text(
-                    'I am Android App developer. Always I try to keep my code clean. ',
-                    style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),
-                  ),
-                  Text(
-                    'I am Android App developer. Always I try to keep my code clean. ',
-                    style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),
-                  ),
-                  Container(
-                    height: 200,
-                    width: 400,
-                    child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          crossAxisSpacing: 0,
-                          childAspectRatio: 1.2,
-                        ),
-                        itemCount: MyItems.length,
-                        itemBuilder: (context, index){
-                          return GestureDetector(
-                            child: Container(
-                              margin: EdgeInsets.all(5),
-                              width: double.infinity,
-                              height: 200,
-                              child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),
-                            ),
-                          );
-                        }
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.6,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Khalid Ahmad',
+                      style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.w500),
                     ),
-                  )
-                ],
+                    SizedBox(height: 10,),
+                    Text(
+                      'I am Android App developer. Always I try to keep my code clean. ',
+                      style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      'I am Android App developer. Always I try to keep my code clean. ',
+                      style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(height: 5,),
+                    Container(
+                      height: 200,
+                      width: double.infinity,
+                      child: GridView.builder(
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 0,
+                            childAspectRatio: 1.2,
+                          ),
+                          itemCount: MyItems.length,
+                          itemBuilder: (context, index){
+                            return GestureDetector(
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 5, 5, 0),
+                                width: double.infinity,
+                                height: 200,
+                                child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),
+                              ),
+                            );
+                          }
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
           ],
